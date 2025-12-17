@@ -1,3 +1,5 @@
+package Day1;
+
 public class Marks {
     public static void main(String[] args) {
 
