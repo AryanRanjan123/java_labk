@@ -2,53 +2,60 @@ package Day3;
 
 import java.util.Scanner;
 
-// Base class
 class Plate {
-    double length, width;
+    int length, width;
 
-    Plate(double l, double w) {
-        length = l;
-        width = w;
-        System.out.println("Plate Dimensions:");
-        System.out.println("Length = " + length);
-        System.out.println("Width = " + width);
+    Plate(int length, int width) {
+        this.length = length;
+        this.width = width;
+        System.out.println("Plate constructor called");
+        System.out.println("Length = " + length + ", Width = " + width);
     }
 }
-class Box extends Plate {
-    double height;
 
-    Box(double l, double w, double h) {
-        super(l, w);
-        height = h;
-        System.out.println("Box Dimensions:");
+class Box extends Plate {
+    int height;
+
+    Box(int length, int width, int height) {
+        super(length, width);
+        this.height = height;
+        System.out.println("Box constructor called");
         System.out.println("Height = " + height);
     }
 }
 
-// Derived class
-class WoodBox extends Box {
-    double thick;
 
-    WoodBox(double l, double w, double h, double t) {
-        super(l, w, h);
-        thick = t;
-        System.out.println("WoodBox Dimensions:");
+class WoodBox extends Box {
+    int thick;
+
+    WoodBox(int length, int width, int height, int thick) {
+        super(length, width, height);
+        this.thick = thick;
+        System.out.println("WoodBox constructor called");
         System.out.println("Thickness = " + thick);
     }
 }
 
-// Main class (FILE NAME MUST MATCH THIS)
+
 public class WoodBoxDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter length, width, height and thickness:");
-        double l = sc.nextDouble();
-        double w = sc.nextDouble();
-        double h = sc.nextDouble();
-        double t = sc.nextDouble();
+        System.out.println("Enter the dimensions");
 
-        WoodBox wb = new WoodBox(l, w, h, t);
+        System.out.print("Length: ");
+        int length = sc.nextInt();
+
+        System.out.print("Width: ");
+        int width = sc.nextInt();
+
+        System.out.print("Height: ");
+        int height = sc.nextInt();
+
+        System.out.print("Thickness: ");
+        int thick = sc.nextInt();
+
+        WoodBox wb = new WoodBox(length, width, height, thick);
 
         sc.close();
     }
